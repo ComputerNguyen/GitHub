@@ -16,13 +16,15 @@ namespace GCI
         {
             InitializeComponent();
         }
-        //
-        //Get Information
-        //
+        /// <summary>
+        /// Khi chạy chương trình sẽ tự động trích xuất thông tin ra màn hình hiển thị
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GCImain_Load(object sender, EventArgs e)
         {
             //
-            //Get CPU Info
+            //Lấy thông tin cơ bản về Vi xử lí thông qua Class "Win32_Processor"
             //
             #region
             txtCPUName.Text = GCI.GetInfo("Win32_Processor", "Name");
@@ -38,7 +40,8 @@ namespace GCI
             txtCPUMaxClockSpeed.Text = GCI.GetInfo("Win32_processor", "MaxClockSpeed");
             txtCPUDataWidth.Text = GCI.GetInfo("Win32_processor", "DataWidth");
             //
-            //Open Picture Of Processor
+            //Tìm và đưa ra màn hình hiển thị hình ảnh tương ứng với CPU 
+            //Hình ảnh của vi xử lí Core i3,Core i5 và Core i7
             //
             string s1 = txtCPUName.Text;
             if (s1.IndexOf("i7") >= 0)
@@ -53,13 +56,15 @@ namespace GCI
             //Get Mainboard Information
             //
             #region
-            //groupBaseBoard
+            //Lấy thông tin về Base Board thông qua Class "Win32_BaseBoard"
+            //
             txtMainManufacturer.Text = GCI.GetInfo("Win32_BaseBoard", "Manufacturer");
             txtMainCaption.Text = GCI.GetInfo("Win32_BaseBoard", "Caption");
             txtMainProduct.Text = GCI.GetInfo("Win32_BaseBoard", "Product");
             txtMainVersion.Text = GCI.GetInfo("Win32_BaseBoard", "Version");
             txtMainSerial.Text = GCI.GetInfo("Win32_BaseBoard", "SerialNumber");
-            //groupBios
+            //Lấy thông tin về Bios và xuất ra màn hình 
+            //Sử dụng Class "Win32_BIOS"
             txtBiosManufacturer.Text = GCI.GetInfo("Win32_BIOS", "Manufacturer");
             txtBiosReleaseDate.Text = GCI.GetInfo("Win32_BIOS", "ReleaseDate");
             txtBiosSMBios.Text = GCI.GetInfo("Win32_BIOS", "SMBIOSBIOSVersion");
@@ -68,12 +73,11 @@ namespace GCI
             //
             #endregion
             //
-            //Get Memory Information
+            //Lấy thông tin về Bộ nhớ máy tính bao gồm Ram và Ổ cứng
+            //Lấy thông tin về Ổ cứng và xuất ra TextBox
+            //Sử dụng Class "Win32_DiskDrive"
             //
             #region
-            //
-            //Disk Device Information
-            //
             txtDiskModel.Text = GCI.GetInfo("Win32_DiskDrive", "Model");
             txtDiskSerialNumber.Text = GCI.GetInfo("Win32_DiskDrive", "SerialNumber");
             txtDiskSize.Text = GCI.GetInfo("Win32_DiskDrive", "Size");
@@ -83,7 +87,8 @@ namespace GCI
             txtDiskInterfaceType.Text = GCI.GetInfo("Win32_DiskDrive", "InterfaceType");
             txtDiskTotalCylinders.Text = GCI.GetInfo("Win32_DiskDrive", "TotalCylinders");
             //
-            //Ram Information
+            //Lấy thông tin về Ram và xuất ra TextBox
+            //Sử dụng Class "Win32_PhysicalMemory"
             //
             txtRamTotalSize.Text = GCI.GetRamSize();
             txtRamSlots.Text = GCI.GetNoRamSlots();
@@ -92,7 +97,8 @@ namespace GCI
             //
             #endregion
             //
-            //Get Battery Information
+            //Lấy thông tin cơ bản về Pin xuất ra TextBox
+            //Sử dụng Class "Win32_Battery"
             //
             #region
             //
@@ -109,7 +115,8 @@ namespace GCI
             //
             #endregion
             //
-            //Get Information Operating System
+            //Lấy thông tin về Hệ điều hành Windows xuất ra TextBox
+            //Sử dụng Class "Win32_OperatingSystem"
             //
             #region
             //
@@ -122,46 +129,49 @@ namespace GCI
             //
 
         }
-        //
-        //Get Graphics Information
-        //
+
         #region
-        //
-        //Select Display Device and Get info 
-        //
+        /// <summary>
+        /// Lựa chọn Class "Win32_DisplayControllerConfiguration",hoặc"Win32_DisplayConfiguration"
+        /// Lấy thông tin GPU được chọn và xuất ra TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {   
-            
-            string res = comboBox1.SelectedItem.ToString();
-            if (res== "Win32_DisplayControllerConfiguration")
-            //
-            //Select Display Controller Configuration
-            //
+        {   //Gán tên Class được chọn từ ComboBox chuyển sang xâu vào biến xâu Cls
+            string Cls = comboBox1.SelectedItem.ToString();
+            //Nếu chọn vào Class "Win32_DisplayControllerConfiguration"-Lấy thông tin GPU Onboard
+            if (Cls== "Win32_DisplayControllerConfiguration")
+            //Trích xuất thông tin ra TextBox
             {
-                txtGPUBitsPerPel.Text = GCI.GetInfo(res, "BitsPerPixel");
-                txtGPUCaption.Text = GCI.GetInfo(res, "Caption");
-                txtGPUDisplay.Text = GCI.GetInfo(res, "RefreshRate");
-                txtGPUPelsHeight.Text = GCI.GetInfo(res, "HorizontalResolution");
-                txtGPUPelsWidth.Text = GCI.GetInfo(res, "VerticalResolution");
-                txtGPULogPixels.Text = GCI.GetInfo(res, "LogPixels");
-                txtGPUVideoMode.Text = GCI.GetInfo(res, "VideoMode");
+                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPixel");
+                txtGPUCaption.Text = GCI.GetInfo(Cls, "Caption");
+                txtGPUDisplay.Text = GCI.GetInfo(Cls, "RefreshRate");
+                txtGPUPelsHeight.Text = GCI.GetInfo(Cls, "HorizontalResolution");
+                txtGPUPelsWidth.Text = GCI.GetInfo(Cls, "VerticalResolution");
+                txtGPULogPixels.Text = GCI.GetInfo(Cls, "LogPixels");
+                txtGPUVideoMode.Text = GCI.GetInfo(Cls, "VideoMode");
             }
+            //Nếu chọn vào Class "Win32_DisplayConfiguration"-Lấy thông tin GPU rời
             else
-            //
-            //Select Display Configuration
-            //
+            //Trích xuất thông tin ra TextBox
             {
-                txtGPUBitsPerPel.Text = GCI.GetInfo(res, "BitsPerPel");
-                txtGPUCaption.Text = GCI.GetInfo(res, "Caption");
-                txtGPUDisplay.Text = GCI.GetInfo(res, "DisplayFrequency");
-                txtGPUPelsHeight.Text = GCI.GetInfo(res, "PelsHeight");
-                txtGPUPelsWidth.Text = GCI.GetInfo(res, "PelsWidth");
-                txtGPULogPixels.Text = GCI.GetInfo(res, "LogPixels");
-                txtGPUVideoMode.Text = GCI.GetInfo(res, "VideoMode");
+                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPel");
+                txtGPUCaption.Text = GCI.GetInfo(Cls, "Caption");
+                txtGPUDisplay.Text = GCI.GetInfo(Cls, "DisplayFrequency");
+                txtGPUPelsHeight.Text = GCI.GetInfo(Cls, "PelsHeight");
+                txtGPUPelsWidth.Text = GCI.GetInfo(Cls, "PelsWidth");
+                txtGPULogPixels.Text = GCI.GetInfo(Cls, "LogPixels");
+                txtGPUVideoMode.Text = GCI.GetInfo(Cls, "VideoMode");
             }
                       
         }
-
+        /// <summary>
+        /// Gán link vào LinkLabel để đến đường dẫn cá nhân
+        /// Khi click vào LinkLabel sẽ chuyển đến trang web cá nhân
+        /// </summary>
+        /// <param name="sender"></param> 
+        /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel1.LinkVisited = true;
