@@ -51,7 +51,7 @@ namespace GCI
             long MemSize = 0;
             long mCap = 0;
 
-            //s 
+            //
             foreach (ManagementObject obj in oCollection)
             {
                 mCap = Convert.ToInt64(obj["Capacity"]);
