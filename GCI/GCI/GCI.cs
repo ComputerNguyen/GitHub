@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//.................Get Computer Information...................
+//......................Version: 1.0.0........................
+//.......................October 2015.........................
+//..................Tác giả: Nguyễn Văn Tú....................
+//...............www.facebook.com/computer.nvt................
+//............GCI là mã nguồn mở có thể tùy biến..............
+
+using System;
 using System.Management;
 
 namespace GCI
-{   
-    
-   /// <summary>
-   /// Class GCI xử lí và đưa ra thông tin cần lấy
-   /// </summary>
-   public static class GCI
-    {  
+{
+
+    /// <summary>
+    /// Class GCI xử lí và đưa ra thông tin cần lấy
+    /// </summary>
+    public static class GCI
+    {
         /// <summary>
         /// Lấy thông tin máy tính thông qua WMi và trả về kết quả tương ứng
         /// </summary>

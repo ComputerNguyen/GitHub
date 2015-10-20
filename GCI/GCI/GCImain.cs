@@ -1,30 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//.................Get Computer Information...................
+//......................Version: 1.0.0........................
+//.......................October 2015.........................
+//..................Tác giả: Nguyễn Văn Tú....................
+//...............www.facebook.com/computer.nvt................
+//............GCI là mã nguồn mở có thể tùy biến..............
+
+using System;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.ComponentModel;
+using System.Media;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace GCI
 {
     public partial class GCImain : Form
-    {
+    { 
+        //
+        //Khai báo các biến toàn cục
+        //
+        #region 
+        public static string 
+            saveCPU,
+            saveMain,
+            saveMem,
+            saveGra = ">>>>>>>>>>>>Graphics<<<<<<<<<<<<" + "\r\n\r\n",
+            saveBat,
+            saveOS;
+        #endregion
+        
+        /// <summary>
+        /// Hàm khởi tạo các đối tượng trên Form
+        /// </summary>
         public GCImain()
         {
+            //
+            //Hàm InitializeComponent() dùng để khởi tạo các đối tượng có trên form như textbox,combobox...
+            //
             InitializeComponent();
         }
+        
         /// <summary>
-        /// Khi chạy chương trình sẽ tự động trích xuất thông tin ra màn hình hiển thị
+        /// Lấy thông tin CPU,Main,Memory,Battery,OS và hiển thị
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GCImain_Load(object sender, EventArgs e)
+        /// <param name="sender">Đối tượng phát sinh ra event</param>
+        /// <param name="e">Đối tượng e chứa danh sách các thuộc tính bổ xung khi đối tượng phát sinh event</param>
+        public void GCImain_Load(object sender, EventArgs e)
         {
             //
-            //Lấy thông tin cơ bản về Vi xử lí thông qua Class "Win32_Processor"
+            //Lấy thông tin cơ bản về Vi xử lí 
+            //Sử dụng Class "Win32_Processor"
             //
             #region
             txtCPUName.Text = GCI.GetInfo("Win32_Processor", "Name");
@@ -53,10 +85,12 @@ namespace GCI
             //
             #endregion
             //
-            //Get Mainboard Information
+            //Lấy thông tin cơ bản về MainBoard xuất ra TextBox
+            //Sử dụng Class "Win32_BaseBoard" và "Win32_BIOS"
             //
             #region
-            //Lấy thông tin về Base Board thông qua Class "Win32_BaseBoard"
+            //Lấy thông tin về Base Board
+            //Class "Win32_BaseBoard"
             //
             txtMainManufacturer.Text = GCI.GetInfo("Win32_BaseBoard", "Manufacturer");
             txtMainCaption.Text = GCI.GetInfo("Win32_BaseBoard", "Caption");
@@ -73,9 +107,8 @@ namespace GCI
             //
             #endregion
             //
-            //Lấy thông tin về Bộ nhớ máy tính bao gồm Ram và Ổ cứng
-            //Lấy thông tin về Ổ cứng và xuất ra TextBox
-            //Sử dụng Class "Win32_DiskDrive"
+            //Lấy thông tin về Ổ cứng và Ram xuất ra TextBox
+            //Sử dụng Class "Win32_DiskDrive" và "Win32_PhysicalMemory"
             //
             #region
             txtDiskModel.Text = GCI.GetInfo("Win32_DiskDrive", "Model");
@@ -127,58 +160,208 @@ namespace GCI
             //
             #endregion
             //
+            //Lưu thông tin máy tính dưới dạng xâu kí tự
+            //Lưu vào các biến xâu saveCPU,saveMain,saveMem,saveBat,saveOS
+            //
+            #region
+            
+            saveCPU =
+                 //Lưu thông tin CPU vào string saveCPU
+                 "...............Get Computer Information..........\r\n" +
+                 "...................Version 1.0.0.................\r\n" +
+                 "..............Produced by: Nguyen Van Tu.........\r\n\r\n" +
+                 "Your Computer Information :\r\n\r\n" +
+                 ">>>>>>>>>>>>CPU<<<<<<<<<<<<" +
+                 "\r\n\r\nName: " + txtCPUName.Text +
+                 "\r\nCaption: " + txtCPUCaption.Text +
+                 "\r\nManufacturer: " + txtCPUManufacturer.Text +
+                 "\r\nAssetTag: " + txtCPUAssetTag.Text +
+                 "\r\nProcessor: " + txtCPUProcessor.Text +
+                 "\r\nCurrentVoltage: " + txtCPUCurrentVoltage.Text +
+                 "\r\nL3CacheSize: " + txtCPUL3CacheSize.Text +
+                 "\r\nRevision: " + txtCPURevision.Text +
+                 "\r\nNumberOfCores: " + txtCPUNumberOfCores.Text +
+                 "\r\nThreadCount: " + txtCPUThreadCount.Text +
+                 "\r\nMaxClockSpeed: " + txtCPUMaxClockSpeed.Text +
+                 "\r\nDataWidth: " + txtCPUDataWidth.Text + "\r\n\r\n";
+            saveMain =
+                 //Lưu thông tin MainBoard vào string saveMain
+                 ">>>>>>>>>>>>MainBoard<<<<<<<<<<<<" +
+                 "\r\n\r\n=> Base Board: \r\n" +
+                 "\r\nManufacturer: " + txtMainManufacturer.Text +
+                 "\r\nCaption: " + txtMainCaption.Text +
+                 "\r\nProduct: " + txtMainProduct.Text +
+                 "\r\nVesion: " + txtMainVersion.Text +
+                 "\r\nSerialNumber: " + txtMainSerial.Text +
+                 "\r\n\r\n=> Bios: \r\n" +
+                 "\r\nManafacturer: " + txtBiosManufacturer.Text +
+                 "\r\nReleaseDate: " + txtBiosReleaseDate.Text +
+                 "\r\nSMBiosVersion: " + txtBiosSMBios.Text +
+                 "\r\nVersion: " + txtBiosVersion.Text +
+                 "\r\nSerialNumber: " + txtBiosSerialNumber.Text + "\r\n\r\n";
+            saveMem =
+                 //Lưu thông tin Memory vào string saveMem
+                 ">>>>>>>>>>>>Memory<<<<<<<<<<<<" + "\r\n"+
+                 "\r\n=> Disk : \r\n"+
+                 "\r\nModel: " +txtDiskModel.Text+
+                 "\r\nSize: " +txtDiskSize.Text+
+                 "\r\nPartitions: " +txtDiskPartitions.Text+
+                 "\r\nBytesPerSector: " +txtDiskBytesPerSector.Text+
+                 "\r\nTotalSectors: " +txtDiskTotalSectors.Text+
+                 "\r\nInterfaceType" +txtDiskInterfaceType.Text+
+                 "\r\nTotalCylinders: " +txtDiskTotalCylinders.Text+
+                 "\r\nSerialNumber: " +txtDiskSerialNumber.Text+"\r\n"+
+                 "\r\n=> Ram : \r\n" +
+                 "\r\nTotalSize: "+txtRamTotalSize.Text+
+                 "\r\nSlots: "+txtRamSlots.Text+
+                 "\r\nManufacturer: "+ txtRamManufacturer.Text +
+                 "\r\nSpeed: " + txtRamSpeed.Text+ "\r\n\r\n";
+            saveBat =
+                 //Lưu thông tin Battery vào string saveBat
+                 ">>>>>>>>>>>>Battery<<<<<<<<<<<<" + "\r\n" +
+                 "\r\nCaption: " +txtBatCaption.Text+
+                 "\r\nDeviceID: " +txtBatDevice.Text+
+                 "\r\nBatteryStatus: " +txtBatStatus+
+                 "\r\nDesignVoltage: " +txtBatDesignVoltage.Text+
+                 "\r\nEstimatedChargeRemaining: " +txtBatECR.Text+
+                 "\r\nEstimatedRunTime: " +txtBatERT.Text+
+                 "\r\nExpectedBatteryLife: " +txtBatEBLife.Text+
+                 "\r\nExpectedLife: " +txtBatELife.Text+
+                 "\r\nFullChargeCapacity: " +txtBatFullCharge.Text+
+                 "\r\nMaxReChargeTime: " +txtBatMaxRecharge.Text + "\r\n\r\n";
+            saveOS =
+                 //Lưu thông tin OS vào string saveOS
+                 ">>>>>>>>>>>>Operating Systems<<<<<<<<<<<<" + "\r\n" +
+                 "\r\nCaption: "+txtOSCaption.Text+
+                 "\r\nVersion: " +txtOSVersion.Text+
+                 "\r\nRegistered User: " +txtOSUser.Text+
+                 "\r\nSerial Number: " +txtOSSerialNumber.Text+ "\r\n\r\n"
+                 ;
 
+            #endregion
         }
-
-        #region
+        
         /// <summary>
-        /// Lựa chọn Class "Win32_DisplayControllerConfiguration",hoặc"Win32_DisplayConfiguration"
-        /// Lấy thông tin GPU được chọn và xuất ra TextBox
+        /// Lấy thông tin GPU và hiển thị
+        /// Lựa chọn thiết bị cần lấy thông tin
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Đối tượng phát sinh ra event</param>
+        /// <param name="e">Đối tượng e chứa danh sách các thuộc tính bổ xung khi đối tượng phát sinh event</param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {   //Gán tên Class được chọn từ ComboBox chuyển sang xâu vào biến xâu Cls
             string Cls = comboBox1.SelectedItem.ToString();
-            //Nếu chọn vào Class "Win32_DisplayControllerConfiguration"-Lấy thông tin GPU Onboard
-            if (Cls== "Win32_DisplayControllerConfiguration")
-            //Trích xuất thông tin ra TextBox
+            //
+            //Lấy thông tin về Display Controller Configuration
+            //Sử dụng Class "Win32_DisplayControllerConfiguration" và "Win32_DisplayConfiguration"
+            //
+            #region
+            if (Cls== "DisplayControllerConfiguration")
             {
-                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPixel");
+                //
+                //Lấy thông tin về Display Controller Configuration
+                //Sử dụng Class "Win32_DisplayControllerConfiguration" 
+                //
+                #region
+                Cls = "Win32_DisplayControllerConfiguration";
                 txtGPUCaption.Text = GCI.GetInfo(Cls, "Caption");
+                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPixel");
                 txtGPUDisplay.Text = GCI.GetInfo(Cls, "RefreshRate");
                 txtGPUPelsHeight.Text = GCI.GetInfo(Cls, "HorizontalResolution");
                 txtGPUPelsWidth.Text = GCI.GetInfo(Cls, "VerticalResolution");
                 txtGPULogPixels.Text = GCI.GetInfo(Cls, "LogPixels");
                 txtGPUVideoMode.Text = GCI.GetInfo(Cls, "VideoMode");
+                #endregion
+                //
+                //Lưu thông tin Graphhics vào stringGra
+                //
+                #region
+                saveGra = saveGra +
+                 //Lưu thông tin Graphics
+                 "=> Display Controller Configuration : \r\n" +
+                 "\r\nCaption: " + txtGPUBitsPerPel.Text +
+                 "\r\nBitsPerPel: " + txtGPUCaption.Text +
+                 "\r\nDisplayFrequency: " + txtGPUDisplay.Text +
+                 "\r\nPelsHeight: " + txtGPUPelsHeight.Text +
+                 "\r\nPelsWidth: " + txtGPUPelsWidth.Text +
+                 "\r\nLogPixels: " + txtGPULogPixels.Text +
+                 "\r\nVideoMode: " + txtGPUVideoMode.Text + "\r\n\r\n"
+                 ;
+                #endregion
             }
-            //Nếu chọn vào Class "Win32_DisplayConfiguration"-Lấy thông tin GPU rời
             else
-            //Trích xuất thông tin ra TextBox
             {
-                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPel");
+                //
+                //Lấy thông tin về Display Configuration
+                //Sử dụng Class "Win32_DisplayConfiguration"
+                //
+                #region
+                Cls = "Win32_DisplayConfiguration";
                 txtGPUCaption.Text = GCI.GetInfo(Cls, "Caption");
+                txtGPUBitsPerPel.Text = GCI.GetInfo(Cls, "BitsPerPel");
                 txtGPUDisplay.Text = GCI.GetInfo(Cls, "DisplayFrequency");
                 txtGPUPelsHeight.Text = GCI.GetInfo(Cls, "PelsHeight");
                 txtGPUPelsWidth.Text = GCI.GetInfo(Cls, "PelsWidth");
                 txtGPULogPixels.Text = GCI.GetInfo(Cls, "LogPixels");
                 txtGPUVideoMode.Text = GCI.GetInfo(Cls, "VideoMode");
+                #endregion
+                //
+                //Lưu thông tin Graphhics vào stringGra
+                //
+                #region
+                saveGra = saveGra +
+                 //Lưu thông tin Graphics
+                 "=> Display Configuration : \r\n" +
+                 "\r\nCaption: " + txtGPUBitsPerPel.Text +
+                 "\r\nBitsPerPel: " + txtGPUCaption.Text +
+                 "\r\nDisplayFrequency: " + txtGPUDisplay.Text +
+                 "\r\nPelsHeight: " + txtGPUPelsHeight.Text +
+                 "\r\nPelsWidth: " + txtGPUPelsWidth.Text +
+                 "\r\nLogPixels: " + txtGPULogPixels.Text +
+                 "\r\nVideoMode: " + txtGPUVideoMode.Text + "\r\n\r\n"
+                 ;
+                #endregion
             }
-                      
+            #endregion
+            //
+            //Hiển thị hình ảnh của GPU
+            //Hỗ trợ: Intel,AMD,NVIDIA,NVIDIA Geforce
+            //
+            #region
+            string GPU = txtGPUCaption.Text;
+            if (GPU.IndexOf("Intel") >= 0)
+                pictureGPU.Image = Properties.Resources.IntelG;
+            else if (GPU.IndexOf("AMD") >= 0)
+                pictureGPU.Image = Properties.Resources.AMD;
+            else if (GPU.IndexOf("GeForce") >= 0)
+                pictureGPU.Image = Properties.Resources.Geforce;
+            else if (GPU.IndexOf("NVIDIA") >= 0)
+                pictureCPU.Image = Properties.Resources.nvidia;
+            #endregion
+            
         }
+        
         /// <summary>
-        /// Gán link vào LinkLabel để đến đường dẫn cá nhân
-        /// Khi click vào LinkLabel sẽ chuyển đến trang web cá nhân
+        /// Tao đường dẫn website
         /// </summary>
-        /// <param name="sender"></param> 
-        /// <param name="e"></param>
+        /// <param name="sender">Đối tượng phát sinh ra event</param>
+        /// <param name="e">Đối tượng e chứa danh sách các thuộc tính bổ xung khi đối tượng phát sinh event</param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("www.facebook.com/computer.nvt");
         }
-        //
-        #endregion
-        //
+        
+        /// <summary>
+        /// Lưu thông tin đã xem ra file
+        /// </summary>
+        /// <param name="sender">Đối tượng phát sinh ra event</param>
+        /// <param name="e">Đối tượng e chứa danh sách các thuộc tính bổ xung khi đối tượng phát sinh event</param>
+        private void button_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                File.WriteAllText(saveFileDialog1.FileName,saveCPU+saveMain+saveMem+saveGra+saveBat+saveOS);
+            }
+        }
     }
 }

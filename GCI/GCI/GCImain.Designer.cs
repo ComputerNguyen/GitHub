@@ -110,6 +110,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.tabGraphics = new System.Windows.Forms.TabPage();
             this.groupGPU = new System.Windows.Forms.GroupBox();
+            this.pictureGPU = new System.Windows.Forms.PictureBox();
             this.txtGPUCaption = new System.Windows.Forms.TextBox();
             this.txtGPUBitsPerPel = new System.Windows.Forms.TextBox();
             this.txtGPUVideoMode = new System.Windows.Forms.TextBox();
@@ -151,6 +152,7 @@
             this.label46 = new System.Windows.Forms.Label();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.groupGCIinfo = new System.Windows.Forms.GroupBox();
+            this.button = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -161,6 +163,7 @@
             this.txtOSUser = new System.Windows.Forms.TextBox();
             this.txtOSVersion = new System.Windows.Forms.TextBox();
             this.txtOSCaption = new System.Windows.Forms.TextBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabCPU.SuspendLayout();
             this.groupProcessor.SuspendLayout();
@@ -173,6 +176,7 @@
             this.groupDisk.SuspendLayout();
             this.tabGraphics.SuspendLayout();
             this.groupGPU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGPU)).BeginInit();
             this.groupDeviceSelection.SuspendLayout();
             this.tabBattery.SuspendLayout();
             this.groupBattery.SuspendLayout();
@@ -257,98 +261,98 @@
             // 
             // txtCPUDataWidth
             // 
-            this.txtCPUDataWidth.Enabled = false;
             this.txtCPUDataWidth.Location = new System.Drawing.Point(333, 243);
             this.txtCPUDataWidth.Name = "txtCPUDataWidth";
+            this.txtCPUDataWidth.ReadOnly = true;
             this.txtCPUDataWidth.Size = new System.Drawing.Size(117, 20);
             this.txtCPUDataWidth.TabIndex = 23;
             // 
             // txtCPUThreadCount
             // 
-            this.txtCPUThreadCount.Enabled = false;
             this.txtCPUThreadCount.Location = new System.Drawing.Point(333, 218);
             this.txtCPUThreadCount.Name = "txtCPUThreadCount";
+            this.txtCPUThreadCount.ReadOnly = true;
             this.txtCPUThreadCount.Size = new System.Drawing.Size(117, 20);
             this.txtCPUThreadCount.TabIndex = 22;
             // 
             // txtCPUMaxClockSpeed
             // 
-            this.txtCPUMaxClockSpeed.Enabled = false;
             this.txtCPUMaxClockSpeed.Location = new System.Drawing.Point(113, 243);
             this.txtCPUMaxClockSpeed.Name = "txtCPUMaxClockSpeed";
+            this.txtCPUMaxClockSpeed.ReadOnly = true;
             this.txtCPUMaxClockSpeed.Size = new System.Drawing.Size(131, 20);
             this.txtCPUMaxClockSpeed.TabIndex = 21;
             // 
             // txtCPUNumberOfCores
             // 
-            this.txtCPUNumberOfCores.Enabled = false;
             this.txtCPUNumberOfCores.Location = new System.Drawing.Point(113, 218);
             this.txtCPUNumberOfCores.Name = "txtCPUNumberOfCores";
+            this.txtCPUNumberOfCores.ReadOnly = true;
             this.txtCPUNumberOfCores.Size = new System.Drawing.Size(131, 20);
             this.txtCPUNumberOfCores.TabIndex = 20;
             // 
             // txtCPURevision
             // 
-            this.txtCPURevision.Enabled = false;
             this.txtCPURevision.Location = new System.Drawing.Point(113, 193);
             this.txtCPURevision.Name = "txtCPURevision";
+            this.txtCPURevision.ReadOnly = true;
             this.txtCPURevision.Size = new System.Drawing.Size(337, 20);
             this.txtCPURevision.TabIndex = 19;
             // 
             // txtCPUL3CacheSize
             // 
-            this.txtCPUL3CacheSize.Enabled = false;
             this.txtCPUL3CacheSize.Location = new System.Drawing.Point(113, 168);
             this.txtCPUL3CacheSize.Name = "txtCPUL3CacheSize";
+            this.txtCPUL3CacheSize.ReadOnly = true;
             this.txtCPUL3CacheSize.Size = new System.Drawing.Size(337, 20);
             this.txtCPUL3CacheSize.TabIndex = 18;
             // 
             // txtCPUCurrentVoltage
             // 
-            this.txtCPUCurrentVoltage.Enabled = false;
             this.txtCPUCurrentVoltage.Location = new System.Drawing.Point(113, 143);
             this.txtCPUCurrentVoltage.Name = "txtCPUCurrentVoltage";
+            this.txtCPUCurrentVoltage.ReadOnly = true;
             this.txtCPUCurrentVoltage.Size = new System.Drawing.Size(222, 20);
             this.txtCPUCurrentVoltage.TabIndex = 17;
             // 
             // txtCPUProcessor
             // 
-            this.txtCPUProcessor.Enabled = false;
             this.txtCPUProcessor.Location = new System.Drawing.Point(113, 118);
             this.txtCPUProcessor.Name = "txtCPUProcessor";
+            this.txtCPUProcessor.ReadOnly = true;
             this.txtCPUProcessor.Size = new System.Drawing.Size(222, 20);
             this.txtCPUProcessor.TabIndex = 16;
             // 
             // txtCPUAssetTag
             // 
-            this.txtCPUAssetTag.Enabled = false;
             this.txtCPUAssetTag.Location = new System.Drawing.Point(113, 93);
             this.txtCPUAssetTag.Name = "txtCPUAssetTag";
+            this.txtCPUAssetTag.ReadOnly = true;
             this.txtCPUAssetTag.Size = new System.Drawing.Size(222, 20);
             this.txtCPUAssetTag.TabIndex = 15;
             // 
             // txtCPUManufacturer
             // 
-            this.txtCPUManufacturer.Enabled = false;
             this.txtCPUManufacturer.Location = new System.Drawing.Point(113, 68);
             this.txtCPUManufacturer.Name = "txtCPUManufacturer";
+            this.txtCPUManufacturer.ReadOnly = true;
             this.txtCPUManufacturer.Size = new System.Drawing.Size(222, 20);
             this.txtCPUManufacturer.TabIndex = 14;
             // 
             // txtCPUCaption
             // 
-            this.txtCPUCaption.Enabled = false;
             this.txtCPUCaption.Location = new System.Drawing.Point(113, 43);
             this.txtCPUCaption.Name = "txtCPUCaption";
+            this.txtCPUCaption.ReadOnly = true;
             this.txtCPUCaption.Size = new System.Drawing.Size(337, 20);
             this.txtCPUCaption.TabIndex = 13;
             // 
             // txtCPUName
             // 
             this.txtCPUName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCPUName.Enabled = false;
             this.txtCPUName.Location = new System.Drawing.Point(113, 18);
             this.txtCPUName.Name = "txtCPUName";
+            this.txtCPUName.ReadOnly = true;
             this.txtCPUName.Size = new System.Drawing.Size(337, 20);
             this.txtCPUName.TabIndex = 12;
             // 
@@ -482,41 +486,41 @@
             // 
             // txtBiosVersion
             // 
-            this.txtBiosVersion.Enabled = false;
             this.txtBiosVersion.Location = new System.Drawing.Point(323, 68);
             this.txtBiosVersion.Name = "txtBiosVersion";
+            this.txtBiosVersion.ReadOnly = true;
             this.txtBiosVersion.Size = new System.Drawing.Size(120, 20);
             this.txtBiosVersion.TabIndex = 9;
             // 
             // txtBiosSerialNumber
             // 
-            this.txtBiosSerialNumber.Enabled = false;
             this.txtBiosSerialNumber.Location = new System.Drawing.Point(113, 93);
             this.txtBiosSerialNumber.Name = "txtBiosSerialNumber";
+            this.txtBiosSerialNumber.ReadOnly = true;
             this.txtBiosSerialNumber.Size = new System.Drawing.Size(330, 20);
             this.txtBiosSerialNumber.TabIndex = 8;
             // 
             // txtBiosSMBios
             // 
-            this.txtBiosSMBios.Enabled = false;
             this.txtBiosSMBios.Location = new System.Drawing.Point(113, 68);
             this.txtBiosSMBios.Name = "txtBiosSMBios";
+            this.txtBiosSMBios.ReadOnly = true;
             this.txtBiosSMBios.Size = new System.Drawing.Size(154, 20);
             this.txtBiosSMBios.TabIndex = 7;
             // 
             // txtBiosReleaseDate
             // 
-            this.txtBiosReleaseDate.Enabled = false;
             this.txtBiosReleaseDate.Location = new System.Drawing.Point(113, 43);
             this.txtBiosReleaseDate.Name = "txtBiosReleaseDate";
+            this.txtBiosReleaseDate.ReadOnly = true;
             this.txtBiosReleaseDate.Size = new System.Drawing.Size(330, 20);
             this.txtBiosReleaseDate.TabIndex = 6;
             // 
             // txtBiosManufacturer
             // 
-            this.txtBiosManufacturer.Enabled = false;
             this.txtBiosManufacturer.Location = new System.Drawing.Point(113, 18);
             this.txtBiosManufacturer.Name = "txtBiosManufacturer";
+            this.txtBiosManufacturer.ReadOnly = true;
             this.txtBiosManufacturer.Size = new System.Drawing.Size(330, 20);
             this.txtBiosManufacturer.TabIndex = 5;
             // 
@@ -587,41 +591,41 @@
             // 
             // txtMainSerial
             // 
-            this.txtMainSerial.Enabled = false;
             this.txtMainSerial.Location = new System.Drawing.Point(113, 93);
             this.txtMainSerial.Name = "txtMainSerial";
+            this.txtMainSerial.ReadOnly = true;
             this.txtMainSerial.Size = new System.Drawing.Size(330, 20);
             this.txtMainSerial.TabIndex = 12;
             // 
             // txtMainVersion
             // 
-            this.txtMainVersion.Enabled = false;
             this.txtMainVersion.Location = new System.Drawing.Point(323, 68);
             this.txtMainVersion.Name = "txtMainVersion";
+            this.txtMainVersion.ReadOnly = true;
             this.txtMainVersion.Size = new System.Drawing.Size(120, 20);
             this.txtMainVersion.TabIndex = 11;
             // 
             // txtMainProduct
             // 
-            this.txtMainProduct.Enabled = false;
             this.txtMainProduct.Location = new System.Drawing.Point(113, 68);
             this.txtMainProduct.Name = "txtMainProduct";
+            this.txtMainProduct.ReadOnly = true;
             this.txtMainProduct.Size = new System.Drawing.Size(154, 20);
             this.txtMainProduct.TabIndex = 9;
             // 
             // txtMainCaption
             // 
-            this.txtMainCaption.Enabled = false;
             this.txtMainCaption.Location = new System.Drawing.Point(113, 43);
             this.txtMainCaption.Name = "txtMainCaption";
+            this.txtMainCaption.ReadOnly = true;
             this.txtMainCaption.Size = new System.Drawing.Size(330, 20);
             this.txtMainCaption.TabIndex = 8;
             // 
             // txtMainManufacturer
             // 
-            this.txtMainManufacturer.Enabled = false;
             this.txtMainManufacturer.Location = new System.Drawing.Point(113, 18);
             this.txtMainManufacturer.Name = "txtMainManufacturer";
+            this.txtMainManufacturer.ReadOnly = true;
             this.txtMainManufacturer.Size = new System.Drawing.Size(330, 20);
             this.txtMainManufacturer.TabIndex = 7;
             // 
@@ -702,33 +706,33 @@
             // 
             // txtRamSpeed
             // 
-            this.txtRamSpeed.Enabled = false;
             this.txtRamSpeed.Location = new System.Drawing.Point(113, 93);
             this.txtRamSpeed.Name = "txtRamSpeed";
+            this.txtRamSpeed.ReadOnly = true;
             this.txtRamSpeed.Size = new System.Drawing.Size(337, 20);
             this.txtRamSpeed.TabIndex = 7;
             // 
             // txtRamManufacturer
             // 
-            this.txtRamManufacturer.Enabled = false;
             this.txtRamManufacturer.Location = new System.Drawing.Point(113, 68);
             this.txtRamManufacturer.Name = "txtRamManufacturer";
+            this.txtRamManufacturer.ReadOnly = true;
             this.txtRamManufacturer.Size = new System.Drawing.Size(337, 20);
             this.txtRamManufacturer.TabIndex = 6;
             // 
             // txtRamSlots
             // 
-            this.txtRamSlots.Enabled = false;
             this.txtRamSlots.Location = new System.Drawing.Point(113, 43);
             this.txtRamSlots.Name = "txtRamSlots";
+            this.txtRamSlots.ReadOnly = true;
             this.txtRamSlots.Size = new System.Drawing.Size(337, 20);
             this.txtRamSlots.TabIndex = 5;
             // 
             // txtRamTotalSize
             // 
-            this.txtRamTotalSize.Enabled = false;
             this.txtRamTotalSize.Location = new System.Drawing.Point(113, 18);
             this.txtRamTotalSize.Name = "txtRamTotalSize";
+            this.txtRamTotalSize.ReadOnly = true;
             this.txtRamTotalSize.Size = new System.Drawing.Size(337, 20);
             this.txtRamTotalSize.TabIndex = 4;
             // 
@@ -796,65 +800,65 @@
             // 
             // txtDiskTotalCylinders
             // 
-            this.txtDiskTotalCylinders.Enabled = false;
             this.txtDiskTotalCylinders.Location = new System.Drawing.Point(325, 93);
             this.txtDiskTotalCylinders.Name = "txtDiskTotalCylinders";
+            this.txtDiskTotalCylinders.ReadOnly = true;
             this.txtDiskTotalCylinders.Size = new System.Drawing.Size(125, 20);
             this.txtDiskTotalCylinders.TabIndex = 15;
             // 
             // txtDiskTotalSectors
             // 
-            this.txtDiskTotalSectors.Enabled = false;
             this.txtDiskTotalSectors.Location = new System.Drawing.Point(325, 68);
             this.txtDiskTotalSectors.Name = "txtDiskTotalSectors";
+            this.txtDiskTotalSectors.ReadOnly = true;
             this.txtDiskTotalSectors.Size = new System.Drawing.Size(125, 20);
             this.txtDiskTotalSectors.TabIndex = 14;
             // 
             // txtDiskPartitions
             // 
-            this.txtDiskPartitions.Enabled = false;
             this.txtDiskPartitions.Location = new System.Drawing.Point(325, 43);
             this.txtDiskPartitions.Name = "txtDiskPartitions";
+            this.txtDiskPartitions.ReadOnly = true;
             this.txtDiskPartitions.Size = new System.Drawing.Size(125, 20);
             this.txtDiskPartitions.TabIndex = 13;
             // 
             // txtDiskSerialNumber
             // 
-            this.txtDiskSerialNumber.Enabled = false;
             this.txtDiskSerialNumber.Location = new System.Drawing.Point(113, 118);
             this.txtDiskSerialNumber.Name = "txtDiskSerialNumber";
+            this.txtDiskSerialNumber.ReadOnly = true;
             this.txtDiskSerialNumber.Size = new System.Drawing.Size(337, 20);
             this.txtDiskSerialNumber.TabIndex = 12;
             // 
             // txtDiskInterfaceType
             // 
-            this.txtDiskInterfaceType.Enabled = false;
             this.txtDiskInterfaceType.Location = new System.Drawing.Point(113, 93);
             this.txtDiskInterfaceType.Name = "txtDiskInterfaceType";
+            this.txtDiskInterfaceType.ReadOnly = true;
             this.txtDiskInterfaceType.Size = new System.Drawing.Size(122, 20);
             this.txtDiskInterfaceType.TabIndex = 11;
             // 
             // txtDiskBytesPerSector
             // 
-            this.txtDiskBytesPerSector.Enabled = false;
             this.txtDiskBytesPerSector.Location = new System.Drawing.Point(113, 68);
             this.txtDiskBytesPerSector.Name = "txtDiskBytesPerSector";
+            this.txtDiskBytesPerSector.ReadOnly = true;
             this.txtDiskBytesPerSector.Size = new System.Drawing.Size(122, 20);
             this.txtDiskBytesPerSector.TabIndex = 10;
             // 
             // txtDiskSize
             // 
-            this.txtDiskSize.Enabled = false;
             this.txtDiskSize.Location = new System.Drawing.Point(113, 43);
             this.txtDiskSize.Name = "txtDiskSize";
+            this.txtDiskSize.ReadOnly = true;
             this.txtDiskSize.Size = new System.Drawing.Size(122, 20);
             this.txtDiskSize.TabIndex = 9;
             // 
             // txtDiskModel
             // 
-            this.txtDiskModel.Enabled = false;
             this.txtDiskModel.Location = new System.Drawing.Point(113, 18);
             this.txtDiskModel.Name = "txtDiskModel";
+            this.txtDiskModel.ReadOnly = true;
             this.txtDiskModel.Size = new System.Drawing.Size(337, 20);
             this.txtDiskModel.TabIndex = 8;
             // 
@@ -944,6 +948,7 @@
             // 
             // groupGPU
             // 
+            this.groupGPU.Controls.Add(this.pictureGPU);
             this.groupGPU.Controls.Add(this.txtGPUCaption);
             this.groupGPU.Controls.Add(this.txtGPUBitsPerPel);
             this.groupGPU.Controls.Add(this.txtGPUVideoMode);
@@ -966,60 +971,71 @@
             this.groupGPU.TabStop = false;
             this.groupGPU.Text = "GPU";
             // 
+            // pictureGPU
+            // 
+            this.pictureGPU.ErrorImage = null;
+            this.pictureGPU.InitialImage = null;
+            this.pictureGPU.Location = new System.Drawing.Point(315, 44);
+            this.pictureGPU.Name = "pictureGPU";
+            this.pictureGPU.Size = new System.Drawing.Size(100, 93);
+            this.pictureGPU.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureGPU.TabIndex = 0;
+            this.pictureGPU.TabStop = false;
+            // 
             // txtGPUCaption
             // 
-            this.txtGPUCaption.Enabled = false;
             this.txtGPUCaption.Location = new System.Drawing.Point(122, 18);
             this.txtGPUCaption.Name = "txtGPUCaption";
+            this.txtGPUCaption.ReadOnly = true;
             this.txtGPUCaption.Size = new System.Drawing.Size(293, 20);
             this.txtGPUCaption.TabIndex = 13;
             // 
             // txtGPUBitsPerPel
             // 
-            this.txtGPUBitsPerPel.Enabled = false;
             this.txtGPUBitsPerPel.Location = new System.Drawing.Point(122, 43);
             this.txtGPUBitsPerPel.Name = "txtGPUBitsPerPel";
-            this.txtGPUBitsPerPel.Size = new System.Drawing.Size(293, 20);
+            this.txtGPUBitsPerPel.ReadOnly = true;
+            this.txtGPUBitsPerPel.Size = new System.Drawing.Size(183, 20);
             this.txtGPUBitsPerPel.TabIndex = 12;
             // 
             // txtGPUVideoMode
             // 
-            this.txtGPUVideoMode.Enabled = false;
             this.txtGPUVideoMode.Location = new System.Drawing.Point(122, 168);
             this.txtGPUVideoMode.Name = "txtGPUVideoMode";
+            this.txtGPUVideoMode.ReadOnly = true;
             this.txtGPUVideoMode.Size = new System.Drawing.Size(293, 20);
             this.txtGPUVideoMode.TabIndex = 11;
             // 
             // txtGPULogPixels
             // 
-            this.txtGPULogPixels.Enabled = false;
             this.txtGPULogPixels.Location = new System.Drawing.Point(122, 143);
             this.txtGPULogPixels.Name = "txtGPULogPixels";
+            this.txtGPULogPixels.ReadOnly = true;
             this.txtGPULogPixels.Size = new System.Drawing.Size(293, 20);
             this.txtGPULogPixels.TabIndex = 10;
             // 
             // txtGPUPelsWidth
             // 
-            this.txtGPUPelsWidth.Enabled = false;
             this.txtGPUPelsWidth.Location = new System.Drawing.Point(122, 118);
             this.txtGPUPelsWidth.Name = "txtGPUPelsWidth";
-            this.txtGPUPelsWidth.Size = new System.Drawing.Size(293, 20);
+            this.txtGPUPelsWidth.ReadOnly = true;
+            this.txtGPUPelsWidth.Size = new System.Drawing.Size(183, 20);
             this.txtGPUPelsWidth.TabIndex = 9;
             // 
             // txtGPUPelsHeight
             // 
-            this.txtGPUPelsHeight.Enabled = false;
             this.txtGPUPelsHeight.Location = new System.Drawing.Point(122, 93);
             this.txtGPUPelsHeight.Name = "txtGPUPelsHeight";
-            this.txtGPUPelsHeight.Size = new System.Drawing.Size(293, 20);
+            this.txtGPUPelsHeight.ReadOnly = true;
+            this.txtGPUPelsHeight.Size = new System.Drawing.Size(183, 20);
             this.txtGPUPelsHeight.TabIndex = 8;
             // 
             // txtGPUDisplay
             // 
-            this.txtGPUDisplay.Enabled = false;
             this.txtGPUDisplay.Location = new System.Drawing.Point(122, 68);
             this.txtGPUDisplay.Name = "txtGPUDisplay";
-            this.txtGPUDisplay.Size = new System.Drawing.Size(293, 20);
+            this.txtGPUDisplay.ReadOnly = true;
+            this.txtGPUDisplay.Size = new System.Drawing.Size(183, 20);
             this.txtGPUDisplay.TabIndex = 7;
             // 
             // label45
@@ -1104,8 +1120,8 @@
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Win32_DisplayConfiguration",
-            "Win32_DisplayControllerConfiguration"});
+            "DisplayConfiguration",
+            "DisplayControllerConfiguration"});
             this.comboBox1.Location = new System.Drawing.Point(122, 17);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(293, 21);
@@ -1166,81 +1182,81 @@
             // 
             // txtBatMaxRecharge
             // 
-            this.txtBatMaxRecharge.Enabled = false;
             this.txtBatMaxRecharge.Location = new System.Drawing.Point(168, 243);
             this.txtBatMaxRecharge.Name = "txtBatMaxRecharge";
+            this.txtBatMaxRecharge.ReadOnly = true;
             this.txtBatMaxRecharge.Size = new System.Drawing.Size(269, 20);
             this.txtBatMaxRecharge.TabIndex = 19;
             // 
             // txtBatFullCharge
             // 
-            this.txtBatFullCharge.Enabled = false;
             this.txtBatFullCharge.Location = new System.Drawing.Point(168, 218);
             this.txtBatFullCharge.Name = "txtBatFullCharge";
+            this.txtBatFullCharge.ReadOnly = true;
             this.txtBatFullCharge.Size = new System.Drawing.Size(269, 20);
             this.txtBatFullCharge.TabIndex = 18;
             // 
             // txtBatELife
             // 
-            this.txtBatELife.Enabled = false;
             this.txtBatELife.Location = new System.Drawing.Point(168, 193);
             this.txtBatELife.Name = "txtBatELife";
+            this.txtBatELife.ReadOnly = true;
             this.txtBatELife.Size = new System.Drawing.Size(269, 20);
             this.txtBatELife.TabIndex = 17;
             // 
             // txtBatEBLife
             // 
-            this.txtBatEBLife.Enabled = false;
             this.txtBatEBLife.Location = new System.Drawing.Point(168, 168);
             this.txtBatEBLife.Name = "txtBatEBLife";
+            this.txtBatEBLife.ReadOnly = true;
             this.txtBatEBLife.Size = new System.Drawing.Size(269, 20);
             this.txtBatEBLife.TabIndex = 16;
             // 
             // txtBatERT
             // 
-            this.txtBatERT.Enabled = false;
             this.txtBatERT.Location = new System.Drawing.Point(168, 143);
             this.txtBatERT.Name = "txtBatERT";
+            this.txtBatERT.ReadOnly = true;
             this.txtBatERT.Size = new System.Drawing.Size(269, 20);
             this.txtBatERT.TabIndex = 15;
             // 
             // txtBatECR
             // 
-            this.txtBatECR.Enabled = false;
             this.txtBatECR.Location = new System.Drawing.Point(168, 118);
             this.txtBatECR.Name = "txtBatECR";
+            this.txtBatECR.ReadOnly = true;
             this.txtBatECR.Size = new System.Drawing.Size(269, 20);
             this.txtBatECR.TabIndex = 14;
             // 
             // txtBatDesignVoltage
             // 
-            this.txtBatDesignVoltage.Enabled = false;
             this.txtBatDesignVoltage.Location = new System.Drawing.Point(168, 93);
             this.txtBatDesignVoltage.Name = "txtBatDesignVoltage";
+            this.txtBatDesignVoltage.ReadOnly = true;
             this.txtBatDesignVoltage.Size = new System.Drawing.Size(269, 20);
             this.txtBatDesignVoltage.TabIndex = 13;
             // 
             // txtBatStatus
             // 
-            this.txtBatStatus.Enabled = false;
             this.txtBatStatus.Location = new System.Drawing.Point(168, 68);
             this.txtBatStatus.Name = "txtBatStatus";
+            this.txtBatStatus.ReadOnly = true;
             this.txtBatStatus.Size = new System.Drawing.Size(269, 20);
             this.txtBatStatus.TabIndex = 12;
             // 
             // txtBatDevice
             // 
-            this.txtBatDevice.Enabled = false;
             this.txtBatDevice.Location = new System.Drawing.Point(168, 43);
             this.txtBatDevice.Name = "txtBatDevice";
+            this.txtBatDevice.ReadOnly = true;
             this.txtBatDevice.Size = new System.Drawing.Size(269, 20);
             this.txtBatDevice.TabIndex = 11;
             // 
             // txtBatCaption
             // 
-            this.txtBatCaption.Enabled = false;
             this.txtBatCaption.Location = new System.Drawing.Point(168, 18);
             this.txtBatCaption.Name = "txtBatCaption";
+            this.txtBatCaption.ReadOnly = true;
             this.txtBatCaption.Size = new System.Drawing.Size(269, 20);
             this.txtBatCaption.TabIndex = 10;
             // 
@@ -1349,6 +1365,7 @@
             // groupGCIinfo
             // 
             this.groupGCIinfo.BackColor = System.Drawing.SystemColors.Control;
+            this.groupGCIinfo.Controls.Add(this.button);
             this.groupGCIinfo.Controls.Add(this.label37);
             this.groupGCIinfo.Controls.Add(this.label36);
             this.groupGCIinfo.Controls.Add(this.linkLabel1);
@@ -1362,6 +1379,16 @@
             this.groupGCIinfo.TabStop = false;
             this.groupGCIinfo.Text = "GCI Info";
             // 
+            // button
+            // 
+            this.button.Location = new System.Drawing.Point(386, 114);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(78, 23);
+            this.button.TabIndex = 11;
+            this.button.Text = "Save Info";
+            this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
+            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -1369,7 +1396,7 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(148, 13);
             this.label37.TabIndex = 10;
-            this.label37.Text = "Produced by  Nguyễn Văn Tú";
+            this.label37.Text = "Produced by  Nguyen Van Tu";
             // 
             // label36
             // 
@@ -1384,7 +1411,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(153, 74);
+            this.linkLabel1.Location = new System.Drawing.Point(153, 75);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(169, 13);
             this.linkLabel1.TabIndex = 8;
@@ -1396,7 +1423,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(153, 105);
+            this.label39.Location = new System.Drawing.Point(153, 100);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(58, 13);
             this.label39.TabIndex = 5;
@@ -1407,7 +1434,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(214, 105);
+            this.label38.Location = new System.Drawing.Point(214, 100);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(108, 13);
             this.label38.TabIndex = 4;
@@ -1432,9 +1459,9 @@
             // 
             this.txtOSSerialNumber.BackColor = System.Drawing.SystemColors.Control;
             this.txtOSSerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOSSerialNumber.Enabled = false;
             this.txtOSSerialNumber.Location = new System.Drawing.Point(6, 100);
             this.txtOSSerialNumber.Name = "txtOSSerialNumber";
+            this.txtOSSerialNumber.ReadOnly = true;
             this.txtOSSerialNumber.Size = new System.Drawing.Size(458, 13);
             this.txtOSSerialNumber.TabIndex = 3;
             this.txtOSSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1443,9 +1470,9 @@
             // 
             this.txtOSUser.BackColor = System.Drawing.SystemColors.Control;
             this.txtOSUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOSUser.Enabled = false;
             this.txtOSUser.Location = new System.Drawing.Point(6, 75);
             this.txtOSUser.Name = "txtOSUser";
+            this.txtOSUser.ReadOnly = true;
             this.txtOSUser.Size = new System.Drawing.Size(458, 13);
             this.txtOSUser.TabIndex = 2;
             this.txtOSUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1454,9 +1481,9 @@
             // 
             this.txtOSVersion.BackColor = System.Drawing.SystemColors.Control;
             this.txtOSVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOSVersion.Enabled = false;
             this.txtOSVersion.Location = new System.Drawing.Point(6, 50);
             this.txtOSVersion.Name = "txtOSVersion";
+            this.txtOSVersion.ReadOnly = true;
             this.txtOSVersion.Size = new System.Drawing.Size(458, 13);
             this.txtOSVersion.TabIndex = 1;
             this.txtOSVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1465,9 +1492,9 @@
             // 
             this.txtOSCaption.BackColor = System.Drawing.SystemColors.Control;
             this.txtOSCaption.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOSCaption.Enabled = false;
             this.txtOSCaption.Location = new System.Drawing.Point(6, 25);
             this.txtOSCaption.Name = "txtOSCaption";
+            this.txtOSCaption.ReadOnly = true;
             this.txtOSCaption.Size = new System.Drawing.Size(458, 13);
             this.txtOSCaption.TabIndex = 0;
             this.txtOSCaption.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1477,6 +1504,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(484, 311);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1501,6 +1529,7 @@
             this.tabGraphics.ResumeLayout(false);
             this.groupGPU.ResumeLayout(false);
             this.groupGPU.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGPU)).EndInit();
             this.groupDeviceSelection.ResumeLayout(false);
             this.groupDeviceSelection.PerformLayout();
             this.tabBattery.ResumeLayout(false);
@@ -1648,6 +1677,9 @@
         private System.Windows.Forms.TextBox txtOSCaption;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.PictureBox pictureGPU;
+        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
