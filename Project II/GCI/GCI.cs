@@ -17,14 +17,14 @@ namespace GCI
     public static class GCI
     {
         /// <summary>
-        /// Lấy thông tin máy tính thông qua WMi và trả về kết quả tương ứng
+        /// Truy vấn thông tin máy tính thông qua WMI và trả về kết quả tương ứng
         /// </summary>
         /// <param name="Class">Tên lớp trong WMI</param>
-        /// <param name="Resuft">Thông tin cần lấy từ lớp </param>
+        /// <param name="Resuft">Thuộc tính cần lấy thông tin trong lớp </param>
         /// <returns>Trả về thông tin tương ứng dạng chuỗi kí tự</returns>
         public static String GetInfo(string Class, string Resuft)
         {
-
+            //Khởi tạo lớp ManagementObjectSearcher của WMI với Class là lớp đại diện cho một tập thuộc tính Resuft
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + Class);
 
             foreach (ManagementObject wmi in searcher.Get())
@@ -41,11 +41,12 @@ namespace GCI
             return Resuft + ": Unknown";
         }
         /// <summary>
-        /// Trích thông tin dung lượng Ram qua Class "Win32_PhysicalMemory" và tính tổng tất cả dung lượng của các Ram
+        /// Truy vấn thông tin dung lượng Ram qua Class "Win32_PhysicalMemory" và tính tổng tất cả dung lượng của các Ram
         /// </summary>
         /// <returns>Trả về Giá trị dung lượng Ram dạng chuỗi kí tự MB</returns>
         public static string GetRamSize()
         {
+            //Truy vấn thông qua Class ManagementScope
             ManagementScope oMs = new ManagementScope();
             ObjectQuery oQuery = new ObjectQuery("SELECT Capacity FROM Win32_PhysicalMemory");
             ManagementObjectSearcher oSearcher = new ManagementObjectSearcher(oMs, oQuery);
@@ -64,13 +65,14 @@ namespace GCI
             return MemSize.ToString() + "MB";
         }
         /// <summary>
-        /// Lấy thông tin về số khe Ram và trả về giá trị tương ứng
+        /// Truy vấn thông tin về số khe Ram và trả về giá trị tương ứng
         /// </summary>
         /// <returns>Trả về số khe cắm Ram dạng chuỗi kí tự</returns>
         public static string GetNoRamSlots()
         {
 
             int MemSlots = 0;
+            //Truy vấn thông qua Class ManagementScope
             ManagementScope oMs = new ManagementScope();
             ObjectQuery oQuery2 = new ObjectQuery("SELECT MemoryDevices FROM Win32_PhysicalMemoryArray");
             ManagementObjectSearcher oSearcher2 = new ManagementObjectSearcher(oMs, oQuery2);

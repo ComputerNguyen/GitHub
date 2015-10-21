@@ -24,7 +24,7 @@ namespace GCI
     public partial class GCImain : Form
     { 
         //
-        //Khai báo các biến toàn cục
+        //Khai báo các biến toàn cục sử dụng để lưu lại thông tin trong quá trình xem
         //
         #region 
         public static string 
@@ -37,7 +37,7 @@ namespace GCI
         #endregion
         
         /// <summary>
-        /// Hàm khởi tạo các đối tượng trên Form
+        /// Hàm khởi tạo các đối tượng trên Form,cập nhật thay đổi bên design
         /// </summary>
         public GCImain()
         {
